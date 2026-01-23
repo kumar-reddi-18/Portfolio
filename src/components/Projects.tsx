@@ -9,8 +9,8 @@ const projects = [
         title: 'Student Assessment System',
         description: 'A web application used to monitor student academic performance by conducting assignments and providing course materials.',
         tech: ['Flask', 'MySQL', 'Web Hosting'],
-        github: 'https://github.com/kumar-reddi/SAS',
-        link: 'https://github.com/kumar-reddi/SAS',
+        github: 'https://github.com/kumar-18/SAS',
+        link: 'https://github.com/kumar-18/SAS',
         image: '/projects/sas.png',
     },
     {
