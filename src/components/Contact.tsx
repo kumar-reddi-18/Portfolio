@@ -49,7 +49,7 @@ export default function Contact() {
                             </motion.a>
 
                             <motion.a
-                                href="https://linkedin.com/in/kumar-reddi-9133b5155"
+                                href="https://linkedin.com/in/kumar-reddi"
                                 target="_blank"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export default function Contact() {
                                     <Linkedin size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">LinkedIn</h3>
-                                <p className="text-foreground/50 text-sm">kumar-reddi-9133b5155</p>
+                                <p className="text-foreground/50 text-sm">kumar-reddi</p>
                             </motion.a>
 
                             <motion.a

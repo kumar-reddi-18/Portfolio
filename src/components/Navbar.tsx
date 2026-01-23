@@ -58,7 +58,7 @@ export default function Navbar() {
                     <a href="https://github.com/kumar-reddi" target="_blank" className="p-2 hover:text-primary transition-colors">
                         <Github size={20} />
                     </a>
-                    <a href="https://linkedin.com/in/kumar-reddi-9133b5155" target="_blank" className="p-2 hover:text-primary transition-colors">
+                    <a href="https://linkedin.com/in/kumar-reddi" target="_blank" className="p-2 hover:text-primary transition-colors">
                         <Linkedin size={20} />
                     </a>
                     <a href="#contact" className="bg-primary hover:bg-primary/80 text-white px-5 py-2 rounded-full text-sm font-medium transition-all hover:scale-105 active:scale-95">
@@ -97,7 +97,7 @@ export default function Navbar() {
                         <hr className="border-white/10" />
                         <div className="flex justify-center gap-6 py-2">
                             <a href="https://github.com/kumar-reddi" target="_blank"><Github size={24} /></a>
-                            <a href="https://linkedin.com/in/kumar-reddi-9133b5155" target="_blank"><Linkedin size={24} /></a>
+                            <a href="https://linkedin.com/in/kumar-reddi" target="_blank"><Linkedin size={24} /></a>
                             <a href="mailto:kumarreddi18@gmail.com"><Mail size={24} /></a>
                         </div>
                     </motion.div>
