@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kumar Reddi | Lead Software Developer & Founding Team at Swipe",
-  description: "Lead Software Developer with 4+ years of experience. Founding member at Swipe (YC S21). Specialist in building high-performance fullstack applications with React, Node.js, and AWS.",
+  description: "Lead Software Developer with 4+ years of experience. Founding developer at Swipe (YC S21). Specialist in building high-performance fullstack applications with React, Node.js, and AWS.",
   keywords: ["Kumar Reddi", "Software Developer", "Lead Developer", "Fullstack Developer", "Swipe YC", "React Developer", "AWS", "Next.js"],
   authors: [{ name: "Kumar Reddi" }],
   openGraph: {
     title: "Kumar Reddi | Lead Software Developer",
-    description: "Lead Software Developer with 4+ years of experience. Founding member at Swipe (YC S21).",
+    description: "Lead Software Developer with 4+ years of experience. Founding developer at Swipe (YC S21).",
     type: "website",
   },
 };
