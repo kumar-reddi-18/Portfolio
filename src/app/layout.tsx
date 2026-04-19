@@ -1,25 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Kumar Reddi | Lead Software Developer & Founding Team at Swipe",
-  description: "Lead Software Developer with 4+ years of experience. Founding developer at Swipe (YC S21). Specialist in building high-performance fullstack applications with React, Node.js, and AWS.",
-  keywords: ["Kumar Reddi", "Software Developer", "Lead Developer", "Fullstack Developer", "Swipe YC", "React Developer", "AWS", "Next.js"],
+  title: "Kumar Reddi | Fullstack Developer & Freelancer",
+  description: "Lead Software Developer & Freelancer with 4+ years of experience. Founding developer at Swipe (YC S21). Specialist in building high-performance fullstack web applications. Available for freelance projects.",
+  keywords: ["Kumar Reddi", "Freelance Developer", "Fullstack Developer", "Hire Developer", "Swipe YC", "React Developer", "Next.js Developer", "AWS", "Web Development India"],
   authors: [{ name: "Kumar Reddi" }],
   openGraph: {
-    title: "Kumar Reddi | Lead Software Developer",
-    description: "Lead Software Developer with 4+ years of experience. Founding developer at Swipe (YC S21).",
+    title: "Kumar Reddi | Fullstack Developer & Freelancer",
+    description: "Lead Software Developer & Freelancer. Building high-performance web apps for startups and businesses.",
     type: "website",
   },
 };
@@ -30,10 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">
         {children}
       </body>
     </html>
