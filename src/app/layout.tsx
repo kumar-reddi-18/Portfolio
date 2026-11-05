@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+
+const description =
+  "Freelance full-stack developer. I build websites and web apps for startups and small businesses. Previously lead developer at Swipe (YC S21).";
 
 export const metadata: Metadata = {
-  title: "Kumar Reddi | Fullstack Developer & Freelancer",
-  description: "Lead Software Developer & Freelancer with 4+ years of experience. Founding developer at Swipe (YC S21). Specialist in building high-performance fullstack web applications. Available for freelance projects.",
-  keywords: ["Kumar Reddi", "Freelance Developer", "Fullstack Developer", "Hire Developer", "Swipe YC", "React Developer", "Next.js Developer", "AWS", "Web Development India"],
+  title: "Kumar Reddi — Freelance Full-Stack Developer",
+  description,
   authors: [{ name: "Kumar Reddi" }],
   openGraph: {
-    title: "Kumar Reddi | Fullstack Developer & Freelancer",
-    description: "Lead Software Developer & Freelancer. Building high-performance web apps for startups and businesses.",
+    title: "Kumar Reddi — Freelance Full-Stack Developer",
+    description,
     type: "website",
   },
 };
@@ -26,10 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="antialiased">
-        {children}
-      </body>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
