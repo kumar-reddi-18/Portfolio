@@ -10,12 +10,14 @@ export const contact = {
 export type Project = {
   title: string;
   kind: string;
-  year: string;
+  year?: string;
   summary: string;
   role: string;
   stack: string;
   link: { label: string; href: string };
   image?: string;
+  /** Full-length screenshot; the frame scrolls through it on hover. */
+  fullImage?: string;
 };
 
 // Featured projects (shown with a screenshot)
@@ -23,24 +25,23 @@ export const work: Project[] = [
   {
     title: "RioCabs",
     kind: "Client project",
-    year: "2024",
     summary:
       "Booking website for a cab operator in Hyderabad. Customers pick a ride and send the booking straight to the operator's WhatsApp or call in one tap, so the business takes orders without an app or payment gateway.",
     role: "Design, development, deployment",
     stack: "Next.js, Tailwind CSS",
     link: { label: "riocabshyderabad.com", href: "https://riocabshyderabad.com" },
-    image: "/work/riocabs.png",
+    image: "/work/riocabs.jpg",
   },
   {
     title: "AcctSnap",
     kind: "Client project",
-    year: "2025",
     summary:
       "Website for a tax and compliance service that handles ITR, GST and PF/ESI filings over WhatsApp. Includes service pages, a tax calculator, a blog and learning section, and WhatsApp-first enquiry flows.",
     role: "Design, development, deployment",
     stack: "Next.js, Tailwind CSS",
     link: { label: "acctsnap.in", href: "https://acctsnap.in" },
-    image: "/work/acctsnap.png",
+    image: "/work/acctsnap.jpg",
+    fullImage: "/work/acctsnap-full.jpg",
   },
   {
     title: "Swipe",
@@ -51,7 +52,8 @@ export const work: Project[] = [
     role: "Lead developer",
     stack: "React, Next.js, Python, Flask, AWS, Docker",
     link: { label: "getswipe.in", href: "https://getswipe.in" },
-    image: "/work/swipe.png",
+    image: "/work/swipe.jpg",
+    fullImage: "/work/swipe-full.jpg",
   },
 ];
 

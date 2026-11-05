@@ -10,8 +10,9 @@
   --surface: #f3f1ed;
 }
 
+/* Dark: follows the device setting unless the visitor picked a theme with the toggle */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #121211;
     --fg: #ecebe8;
     --muted: #a3a09a;
@@ -19,7 +20,37 @@
     --line: #2a2927;
     --accent: #6fbf9f;
     --surface: #1a1a18;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #121211;
+  --fg: #ecebe8;
+  --muted: #a3a09a;
+  --subtle: #75726c;
+  --line: #2a2927;
+  --accent: #6fbf9f;
+  --surface: #1a1a18;
+  color-scheme: dark;
+}
+
+/* Theme toggle icon: moon in light mode, sun in dark mode, with a rotate/fade swap */
+.theme-icon {
+  grid-area: 1 / 1;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.theme-icon-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+:root[data-theme="dark"] .theme-icon-sun { opacity: 1; transform: none; }
+:root[data-theme="dark"] .theme-icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-sun { opacity: 1; transform: none; }
+  :root:not([data-theme="light"]) .theme-icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+}
+
+/* Smooth colour change when toggling */
+body, header {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @theme inline {
@@ -75,4 +106,79 @@ a {
 @keyframes rise {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
+}
+
+/* ---------- Motion ---------- */
+
+/* Scroll reveal (only hides content once JS has loaded) */
+.js .reveal {
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Process steps: top rule draws in from the left */
+.step::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--fg);
+  transform-origin: left;
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.js .reveal:not(.is-visible) .step::before {
+  transform: scaleX(0);
+}
+.step:nth-child(2)::before { transition-delay: 0.15s; }
+.step:nth-child(3)::before { transition-delay: 0.3s; }
+.step:nth-child(4)::before { transition-delay: 0.45s; }
+
+/* Hero screenshot stack */
+.stack-card {
+  transition: translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), rotate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.float-a { animation: float 7s ease-in-out infinite; }
+.float-b { animation: float 8s ease-in-out -2s infinite; }
+.float-c { animation: float 9s ease-in-out -4s infinite; }
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+/* Faint dot grid behind the hero */
+.dot-grid {
+  background-image: radial-gradient(var(--subtle) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 60% 55% at 70% 45%, #000 20%, transparent 75%);
+}
+
+/* Project frames: scroll through the full page on hover */
+.scroll-shot {
+  top: 0;
+  transform: translateY(0);
+  transition: top 1.2s cubic-bezier(0.45, 0, 0.55, 1), transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+.group:hover .scroll-shot,
+.group:focus-visible .scroll-shot {
+  top: 100%;
+  transform: translateY(-100%);
+  transition-duration: 6s;
+}
+
+/* Arrow nudge on hover */
+.nudge { display: inline-block; transition: transform 0.25s ease; }
+a:hover .nudge { transform: translate(2px, -2px); }
+.nudge-down { display: inline-block; transition: transform 0.25s ease; }
+a:hover .nudge-down { transform: translateY(2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal:not(.is-visible) { opacity: 1; transform: none; }
+  .js .reveal:not(.is-visible) .step::before { transform: none; }
+  .float-a, .float-b, .float-c { animation: none; }
+  .scroll-shot, .stack-card { transition: none; }
+  .group:hover .scroll-shot { top: 0; transform: none; }
 }

@@ -1,0 +1,10 @@
+// Cloudflare Workers config: serves the static export from `npm run build` (./out).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
