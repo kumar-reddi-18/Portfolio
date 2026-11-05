@@ -336,12 +336,13 @@ export default function Home() {
                 Available for new projects
               </p>
               <h1 className="text-4xl sm:text-[3.4rem] font-semibold tracking-tight leading-[1.05] mb-8 text-balance">
-                I build websites and web apps for startups and small businesses.
+                I build websites, web apps and the systems behind them.
               </h1>
               <p className="max-w-xl text-lg text-muted leading-relaxed mb-10">
                 I&apos;m Kumar, a full-stack developer based in India. I spent four years as an early
-                engineer and then lead developer at Swipe (YC S21). Now I work directly with founders
-                and business owners, from the first call to launch.
+                engineer and then lead developer at Swipe (YC S21). Now I take on freelance projects of
+                any size, from a landing page to a full product, and see each one through from the first
+                call to launch.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a

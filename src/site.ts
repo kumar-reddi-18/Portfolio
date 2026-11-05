@@ -4,7 +4,7 @@ export const site = {
   name: "Kumar Reddi",
   title: "Kumar Reddi — Freelance Full-Stack Developer",
   description:
-    "Freelance full-stack developer in India building websites and web apps for startups and small businesses. Former lead developer at Swipe (YC S21). Next.js, React, Python and AWS.",
+    "Freelance full-stack developer in India. I build websites, web apps and backend systems, from a single landing page to a full product. Former lead developer at Swipe (YC S21). Next.js, React, Python and AWS.",
   jobTitle: "Freelance Full-Stack Developer",
   locale: "en_IN",
 };
