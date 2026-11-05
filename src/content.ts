@@ -23,16 +23,6 @@ export type Project = {
 // Featured projects (shown with a screenshot)
 export const work: Project[] = [
   {
-    title: "RioCabs",
-    kind: "Client project",
-    summary:
-      "Booking website for a cab operator in Hyderabad. Customers pick a ride and send the booking straight to the operator's WhatsApp or call in one tap, so the business takes orders without an app or payment gateway.",
-    role: "Design, development, deployment",
-    stack: "Next.js, Tailwind CSS",
-    link: { label: "riocabshyderabad.com", href: "https://riocabshyderabad.com" },
-    image: "/work/riocabs.jpg",
-  },
-  {
     title: "AcctSnap",
     kind: "Client project",
     summary:
@@ -42,6 +32,16 @@ export const work: Project[] = [
     link: { label: "acctsnap.in", href: "https://acctsnap.in" },
     image: "/work/acctsnap.jpg",
     fullImage: "/work/acctsnap-full.jpg",
+  },
+  {
+    title: "RioCabs",
+    kind: "Client project",
+    summary:
+      "Booking website for a cab operator in Hyderabad. Customers pick a ride and send the booking straight to the operator's WhatsApp or call in one tap, so the business takes orders without an app or payment gateway.",
+    role: "Design, development, deployment",
+    stack: "Next.js, Tailwind CSS",
+    link: { label: "riocabshyderabad.com", href: "https://riocabshyderabad.com" },
+    image: "/work/riocabs.jpg",
   },
   {
     title: "Swipe",

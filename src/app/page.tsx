@@ -2,6 +2,7 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import ThemeToggle from "@/components/ThemeToggle";
+import { site } from "@/site";
 import {
   contact,
   work,
@@ -128,23 +129,25 @@ function ProjectMeta({ project }: { project: Project }) {
 
 /** Three real project screenshots, stacked and gently floating. Fans out on hover. */
 function HeroStack() {
+  const byTitle = (t: string) => work.find((p) => p.title === t)!;
+  // Back to front: the last card sits on top. AcctSnap is the featured one.
   const cards = [
     {
-      p: work[2],
+      p: byTitle("Swipe"),
       pos: "right-0 top-0 w-[72%]",
       rest: "rotate-[5deg]",
       hover: "group-hover:translate-x-4 group-hover:-translate-y-3 group-hover:rotate-[8deg]",
       float: "float-c",
     },
     {
-      p: work[1],
+      p: byTitle("RioCabs"),
       pos: "left-0 top-[16%] w-[72%]",
       rest: "-rotate-[5deg]",
       hover: "group-hover:-translate-x-4 group-hover:-rotate-[8deg]",
       float: "float-b",
     },
     {
-      p: work[0],
+      p: byTitle("AcctSnap"),
       pos: "left-[14%] bottom-0 w-[72%]",
       rest: "rotate-[1deg]",
       hover: "group-hover:translate-y-4 group-hover:rotate-0",
@@ -234,11 +237,61 @@ function WhatsAppIcon() {
   );
 }
 
+/* ---------- Structured data (helps Google understand who this site is about) ---------- */
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      name: site.name,
+      url: site.url,
+      jobTitle: site.jobTitle,
+      email: `mailto:${contact.email}`,
+      sameAs: [contact.linkedin, contact.github],
+      knowsAbout: stack.split(", "),
+      worksFor: { "@type": "Organization", name: "Swipe", url: "https://getswipe.in" },
+      address: { "@type": "PostalAddress", addressCountry: "IN" },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${site.url}/#service`,
+      name: `${site.name} — Web Development`,
+      url: site.url,
+      description: site.description,
+      founder: { "@id": `${site.url}/#person` },
+      areaServed: "Worldwide",
+      address: { "@type": "PostalAddress", addressCountry: "IN" },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Services",
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: s.title, description: s.body },
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      publisher: { "@id": `${site.url}/#person` },
+      inLanguage: "en",
+    },
+  ],
+};
+
 /* ---------- Page ---------- */
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <header className="sticky top-0 z-20 border-b border-line/70 bg-bg/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6 sm:h-[72px]">
           <a
